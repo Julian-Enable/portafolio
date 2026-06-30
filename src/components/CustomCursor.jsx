@@ -68,11 +68,11 @@ export default function CustomCursor() {
     <>
       <div
         ref={dot}
-        className="pointer-events-none fixed left-0 top-0 z-[9999] -ml-1 -mt-1 h-2 w-2 rounded-full bg-light"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] -ml-1 -mt-1 hidden h-2 w-2 rounded-full bg-light md:block"
       />
       <div
         ref={ring}
-        className="pointer-events-none fixed left-0 top-0 z-[9999] -ml-4 -mt-4 h-8 w-8 rounded-full border border-light/40 transition-[transform,background-color] duration-200 ease-out"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] -ml-4 -mt-4 hidden h-8 w-8 rounded-full border border-light/40 transition-[transform,background-color] duration-200 ease-out md:block"
       />
     </>
   );

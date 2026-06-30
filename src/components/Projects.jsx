@@ -137,43 +137,48 @@ export default function Projects() {
         {/* En móvil: descripción debajo de cada proyecto */}
         <div className="lg:hidden">
           {projects.map((p) => (
-            <article key={p.id} className="border-t border-line py-7">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line bg-ink">
+            <article key={p.id} className="border-t border-line py-8">
+              <div className="-mx-6 overflow-hidden border-y border-line bg-white/5 sm:mx-0 sm:rounded-lg sm:border">
                 {p.image ? (
-                  <>
-                    <div
-                      className="absolute -inset-6 opacity-45 blur-2xl"
-                      style={{
-                        background: `url(${p.image}) center / cover no-repeat`,
-                      }}
-                    />
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background: `url(${p.image}) center / contain no-repeat`,
-                      }}
-                    />
-                  </>
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    className="block h-auto w-full"
+                  />
                 ) : (
-                  <div className="absolute inset-0" style={{ background: p.color }} />
+                  <div className="aspect-[16/9]" style={{ background: p.color }} />
                 )}
               </div>
-              <p className="mt-5 font-mono text-xs uppercase tracking-wider text-white/40">
+              <p className="mt-6 font-mono text-xs uppercase tracking-wider text-white/50">
                 {p.category}
               </p>
-              <h3 className="mt-2 max-w-full break-words font-display text-[1.55rem] font-extrabold uppercase leading-none text-white [overflow-wrap:anywhere] sm:text-[2rem]">
+              <h3 className="mt-2 max-w-full break-words font-display text-[2rem] font-extrabold uppercase leading-none text-white [overflow-wrap:anywhere]">
                 {p.title}
               </h3>
-              <p className="mt-4 font-body text-[13px] leading-6 text-white/70">
+              <p className="mt-4 font-body text-[15px] leading-7 text-white/75">
                 {p.description}
               </p>
+              {p.highlights && (
+                <ul className="mt-4 flex flex-col gap-2">
+                  {p.highlights.slice(0, 2).map((h) => (
+                    <li
+                      key={h}
+                      className="flex gap-3 font-body text-sm leading-6 text-white/60"
+                    >
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              )}
               {p.link && p.link !== "#" && (
                 <a
                   href={p.link}
                   target="_blank"
                   rel="noreferrer"
                   data-hover
-                  className="mt-5 inline-flex items-center rounded-full bg-light px-5 py-2.5 font-mono text-xs font-medium text-ink"
+                  className="mt-6 inline-flex min-h-11 items-center rounded-full bg-light px-6 font-mono text-sm font-medium text-ink"
                 >
                   Ver proyecto
                 </a>
