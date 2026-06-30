@@ -67,7 +67,7 @@ export default function Projects() {
                   style={{
                     opacity: active === i ? 1 : 0,
                     background: p.image
-                      ? `url(${p.image}) top center / cover`
+                      ? `#0a0a0a url(${p.image}) center / contain no-repeat`
                       : p.color,
                   }}
                 />
