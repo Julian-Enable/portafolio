@@ -63,14 +63,29 @@ export default function Projects() {
               {projects.map((p, i) => (
                 <div
                   key={p.id}
-                  className="absolute inset-0 transition-opacity duration-500"
+                  className="absolute inset-0 bg-ink transition-opacity duration-500"
                   style={{
                     opacity: active === i ? 1 : 0,
-                    background: p.image
-                      ? `url(${p.image}) center / contain no-repeat, url(${p.image}) center / cover no-repeat`
-                      : p.color,
+                    background: p.image ? undefined : p.color,
                   }}
-                />
+                >
+                  {p.image && (
+                    <>
+                      <div
+                        className="absolute -inset-6 opacity-45 blur-2xl"
+                        style={{
+                          background: `url(${p.image}) center / cover no-repeat`,
+                        }}
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: `url(${p.image}) center / contain no-repeat`,
+                        }}
+                      />
+                    </>
+                  )}
+                </div>
               ))}
             </div>
 
