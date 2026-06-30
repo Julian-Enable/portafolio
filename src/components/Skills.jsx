@@ -32,7 +32,7 @@ export default function Skills() {
             data-hover
             onMouseEnter={() => setActive(i)}
             onMouseLeave={() => setActive(-1)}
-            className={`reveal cursor-default text-right font-display text-4xl font-extrabold uppercase leading-[1.05] transition-all duration-300 md:text-7xl ${
+            className={`reveal max-w-full cursor-default break-words text-right font-display text-4xl font-extrabold uppercase leading-[1.05] transition-all duration-300 [overflow-wrap:anywhere] md:text-7xl ${
               active === i || active === -1
                 ? "text-white"
                 : "text-outline opacity-60"

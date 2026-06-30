@@ -17,11 +17,11 @@ export default function About() {
 
       {/* Bio + datos rápidos */}
       <div className="mt-16 grid gap-12 border-t border-line pt-12 md:grid-cols-12">
-        <p className="reveal col-span-12 font-body text-lg leading-relaxed text-white/60 md:col-span-7">
+        <p className="reveal font-body text-lg leading-relaxed text-white/60 md:col-span-7">
           {profile.about}
         </p>
 
-        <dl className="reveal col-span-12 flex flex-col gap-4 md:col-span-5">
+        <dl className="reveal flex flex-col gap-4 md:col-span-5">
           {facts.map((f) => (
             <div
               key={f.label}

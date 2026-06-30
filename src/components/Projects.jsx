@@ -24,7 +24,7 @@ export default function Projects() {
 
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
         {/* Columna izquierda: lista limpia de títulos */}
-        <div className="flex flex-col">
+        <div className="hidden flex-col lg:flex">
           {projects.map((p, i) => (
             <button
               key={p.id}
@@ -137,14 +137,48 @@ export default function Projects() {
         {/* En móvil: descripción debajo de cada proyecto */}
         <div className="lg:hidden">
           {projects.map((p) => (
-            <div key={p.id} className="border-t border-line py-6">
-              <p className="font-mono text-xs uppercase tracking-wider text-white/40">
-                {p.title}
+            <article key={p.id} className="border-t border-line py-7">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-lg border border-line bg-ink">
+                {p.image ? (
+                  <>
+                    <div
+                      className="absolute -inset-6 opacity-45 blur-2xl"
+                      style={{
+                        background: `url(${p.image}) center / cover no-repeat`,
+                      }}
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: `url(${p.image}) center / contain no-repeat`,
+                      }}
+                    />
+                  </>
+                ) : (
+                  <div className="absolute inset-0" style={{ background: p.color }} />
+                )}
+              </div>
+              <p className="mt-5 font-mono text-xs uppercase tracking-wider text-white/40">
+                {p.category}
               </p>
-              <p className="mt-2 font-body text-sm text-white/70">
+              <h3 className="mt-2 max-w-full break-words font-display text-[1.55rem] font-extrabold uppercase leading-none text-white [overflow-wrap:anywhere] sm:text-[2rem]">
+                {p.title}
+              </h3>
+              <p className="mt-4 font-body text-[13px] leading-6 text-white/70">
                 {p.description}
               </p>
-            </div>
+              {p.link && p.link !== "#" && (
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-hover
+                  className="mt-5 inline-flex items-center rounded-full bg-light px-5 py-2.5 font-mono text-xs font-medium text-ink"
+                >
+                  Ver proyecto
+                </a>
+              )}
+            </article>
           ))}
         </div>
       </div>
