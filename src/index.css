@@ -105,6 +105,11 @@ html.lenis body {
     opacity: 0;
     transform: translateY(40px);
   }
+
+  .external-arrow {
+    @apply inline-block h-2.5 w-2.5 border-r border-t border-current align-middle;
+    transform: rotate(45deg);
+  }
 }
 
 /* Scrollbar oscura */

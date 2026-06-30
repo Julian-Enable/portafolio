@@ -106,9 +106,9 @@ export default function Navbar() {
           <a
             href={`mailto:${profile.email}`}
             onClick={() => setOpen(false)}
-            className="mt-4 inline-block w-fit rounded-full border border-line px-5 py-2 font-mono text-sm text-white"
+            className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-line px-5 py-2 font-mono text-sm text-white"
           >
-            Hablemos ↗
+            Hablemos <span className="external-arrow" aria-hidden="true" />
           </a>
         </ul>
       </div>

@@ -39,9 +39,9 @@ export default function Contact() {
             target={s.url.startsWith("http") ? "_blank" : undefined}
             rel="noreferrer"
             data-hover
-            className="font-mono text-sm text-white/60 transition-colors hover:text-white"
+            className="inline-flex items-center gap-2 font-mono text-sm text-white/60 transition-colors hover:text-white"
           >
-            {s.label} ↗
+            {s.label} <span className="external-arrow" aria-hidden="true" />
           </a>
         ))}
       </div>

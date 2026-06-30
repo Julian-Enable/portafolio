@@ -42,7 +42,7 @@ export default function Projects() {
                   {p.title}
                 </span>
                 <span className="shrink-0 text-xl text-white/40 transition-all group-hover:translate-x-1 group-hover:text-accent">
-                  ↗
+                  <span className="external-arrow" aria-hidden="true" />
                 </span>
               </span>
             </button>
@@ -128,7 +128,7 @@ export default function Projects() {
                 data-hover
                 className="mt-6 inline-flex items-center gap-2 rounded-full bg-light px-6 py-3 font-mono text-sm font-medium text-ink transition-transform hover:scale-105"
               >
-                Ver proyecto ↗
+                Ver proyecto <span className="external-arrow" aria-hidden="true" />
               </a>
             )}
           </div>
@@ -178,9 +178,9 @@ export default function Projects() {
                   target="_blank"
                   rel="noreferrer"
                   data-hover
-                  className="mt-6 inline-flex min-h-11 items-center rounded-full bg-light px-6 font-mono text-sm font-medium text-ink"
+                  className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-light px-6 font-mono text-sm font-medium text-ink"
                 >
-                  Ver proyecto
+                  Ver proyecto <span className="external-arrow" aria-hidden="true" />
                 </a>
               )}
             </article>

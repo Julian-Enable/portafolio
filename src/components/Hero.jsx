@@ -69,7 +69,7 @@ export default function Hero() {
             data-hover
             className="inline-flex w-fit items-center gap-2 rounded-full bg-light px-6 py-3 font-mono text-sm font-medium text-ink transition-transform hover:scale-105"
           >
-            Ver CV ↗
+            Ver CV <span className="external-arrow" aria-hidden="true" />
           </a>
         </div>
 
