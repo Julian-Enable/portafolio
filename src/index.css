@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fondo aurora */
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(110px);
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.aurora-a {
+  width: 65vw;
+  height: 65vw;
+  background: #4f46e5;
+  opacity: 0.4;
+  top: -22vw;
+  left: -12vw;
+  animation: aurora-a 26s ease-in-out infinite alternate;
+}
+.aurora-b {
+  width: 55vw;
+  height: 55vw;
+  background: #7c3aed;
+  opacity: 0.32;
+  bottom: -22vw;
+  right: -12vw;
+  animation: aurora-b 30s ease-in-out infinite alternate;
+}
+.aurora-c {
+  width: 45vw;
+  height: 45vw;
+  background: #6366f1;
+  opacity: 0.25;
+  top: 35%;
+  left: 45%;
+  animation: aurora-c 34s ease-in-out infinite alternate;
+}
+@keyframes aurora-a {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(18vw, 12vh) scale(1.15); }
+}
+@keyframes aurora-b {
+  from { transform: translate(0, 0) scale(1.1); }
+  to { transform: translate(-15vw, -10vh) scale(0.95); }
+}
+@keyframes aurora-c {
+  from { transform: translate(0, 0) scale(0.9); }
+  to { transform: translate(-12vw, 14vh) scale(1.2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora { animation: none !important; }
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-light font-body antialiased overflow-x-hidden;
+  }
+
+  /* Oculta el cursor nativo en escritorio (usamos uno personalizado) */
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
+  }
+
+  ::selection {
+    @apply bg-accent text-white;
+  }
+}
+
+@layer utilities {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-12;
+  }
+
+  /* Texto con borde (outline) para el efecto "hueco" de los títulos grandes */
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(229, 231, 235, 0.45);
+    color: transparent;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+/* Scrollbar oscura */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a2a;
+}
