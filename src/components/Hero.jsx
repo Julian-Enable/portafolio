@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { profile } from "../data";
+import { useTypewriter } from "../hooks/useTypewriter";
 
 export default function Hero() {
   const root = useRef(null);
-  const [tagIndex, setTagIndex] = useState(0);
+  const typed = useTypewriter(profile.taglines);
 
   // Animación de entrada
   useEffect(() => {
@@ -25,15 +26,6 @@ export default function Hero() {
       });
     }, root);
     return () => ctx.revert();
-  }, []);
-
-  // Rotación de taglines
-  useEffect(() => {
-    const id = setInterval(
-      () => setTagIndex((i) => (i + 1) % profile.taglines.length),
-      3500
-    );
-    return () => clearInterval(id);
   }, []);
 
   return (
@@ -64,9 +56,10 @@ export default function Hero() {
       {/* Pie del hero: tagline rotativa + ubicación + scroll */}
       <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div className="hero-meta flex max-w-md flex-col gap-5">
-          <p className="font-body text-base text-white/70 md:text-lg">
-            <span key={tagIndex} className="inline-block animate-[fadeIn_0.6s_ease]">
-              {profile.taglines[tagIndex]}
+          <p className="min-h-[3.5rem] font-body text-base text-white/70 md:min-h-[2rem] md:text-lg">
+            {typed}
+            <span className="ml-0.5 inline-block w-[2px] animate-blink bg-accent align-middle" style={{ height: "1.1em" }}>
+              &nbsp;
             </span>
           </p>
           <a
